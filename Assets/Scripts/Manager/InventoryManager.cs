@@ -9,6 +9,7 @@ public class InventoryManager : MonoBehaviour
     private Dictionary<ItemType, ItemData> itemDataDict = new Dictionary<ItemType, ItemData>();
 
     public InventoryData backpack;
+    public InventoryData toolBar;
 
     private void Awake()
     {
@@ -25,6 +26,7 @@ public class InventoryManager : MonoBehaviour
         }
 
         backpack = Resources.Load<InventoryData>("Data/Backpack");
+        toolBar = Resources.Load<InventoryData>("Data/ToolBar");
     }
 
     private ItemData GetItemData(ItemType type)

@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PackbackUI_0
+      name: Bg_Frame
       rect:
         serializedVersion: 2
         x: 29
@@ -131,20 +131,62 @@ TextureImporter:
         width: 287
         height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 245eb8474cf73314cbb7b0bae7240315
+      spriteID: ff842cefac106314880887bbd8d78fc2
       internalID: -640689140
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PackbackUI_1
+      name: CloseButton
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 182
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b14930ad44ebb6428830e6377f074b2
+      internalID: 859186091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ToolBar
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 157
+        width: 233
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8106f5053bd55dc4a8fe9f53f4d4406a
+      internalID: 1513777644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bg_Left
       rect:
         serializedVersion: 2
         x: 39
@@ -152,20 +194,20 @@ TextureImporter:
         width: 74
         height: 76
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a1c61c3168db3a48921aee88425b650
-      internalID: -92220534
+      spriteID: 9eb81fa81145c904697b622bc87d8e7b
+      internalID: -1221061904
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PackbackUI_2
+      name: Bg_Right
       rect:
         serializedVersion: 2
         x: 119
@@ -173,20 +215,20 @@ TextureImporter:
         width: 187
         height: 76
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2118047af9e198243a1996e0cdd653d0
-      internalID: 502452854
+      spriteID: 032cfcc028458ee4b9782e77d2fe0267
+      internalID: -256314100
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PackbackUI_3
+      name: Slot_Light
       rect:
         serializedVersion: 2
         x: 320
@@ -194,14 +236,35 @@ TextureImporter:
         width: 18
         height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9bd562b02b13ea444addd111f662b2b2
-      internalID: 1513777644
+      spriteID: f7fe1ff013be6064ca7aa49b6b1e6a63
+      internalID: -92220534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slot_Dark
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 47
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ee365d8579c6ab4390c334c4feaa4d3
+      internalID: -1683110418
       vertices: []
       indices: 
       edges: []
@@ -217,10 +280,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      PackbackUI_0: -640689140
-      PackbackUI_1: -92220534
-      PackbackUI_2: 502452854
-      PackbackUI_3: 1513777644
+      Bg_Frame: -640689140
+      Bg_Left: -1221061904
+      Bg_Right: -256314100
+      CloseButton: 859186091
+      Slot_Dark: -1683110418
+      Slot_Light: -92220534
+      ToolBar: 1513777644
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
