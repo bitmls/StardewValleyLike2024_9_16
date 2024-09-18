@@ -18,7 +18,7 @@ public class SlotData
 
     public bool IsEmpty()
     {
-        return count == 0;
+        return count == 0 || item == null;
     }
 
     public void AddOne()
@@ -27,10 +27,32 @@ public class SlotData
         TriggerChange();
     }
 
+    public void ReduceOne()
+    {
+        count--;
+        if (IsEmpty())
+            Clear();
+        TriggerChange();
+    }
+
     public void AddNewItem(ItemData item)
     {
         this.item = item;
         count++;
+        TriggerChange();
+    }
+
+    public void Clear()
+    {
+        item = null;
+        count = 0;
+        TriggerChange();
+    }
+
+    public void CopySlot(SlotData slotData)
+    {
+        this.item = slotData.item;
+        this.count = slotData.count;
         TriggerChange();
     }
 
@@ -43,6 +65,4 @@ public class SlotData
     {
         this.OnChange = OnChange;
     }
-
-
 }

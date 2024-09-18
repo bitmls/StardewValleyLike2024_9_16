@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class SlotUI : MonoBehaviour
+public class SlotUI : MonoBehaviour, IPointerClickHandler
 {
     public int index;
     private SlotData data;
@@ -18,6 +19,11 @@ public class SlotUI : MonoBehaviour
         data.AddListener(OnDataChange);
 
         UpdateUI();
+    }
+
+    public SlotData GetSlotData()
+    {
+        return data;
     }
 
     private void OnDataChange()
@@ -39,5 +45,10 @@ public class SlotUI : MonoBehaviour
             iconImage.sprite = data.item.sprite;
             countText.text = data.count.ToString();
         }
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        ItemMoveHandler.instance.OnSlotClick(this);
     }
 }

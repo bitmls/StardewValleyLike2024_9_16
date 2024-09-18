@@ -13,20 +13,20 @@ MonoBehaviour:
   m_Name: Backpack
   m_EditorClassIdentifier: 
   slotList:
-  - item: {fileID: 0}
-    count: 0
-  - item: {fileID: 0}
-    count: 0
-  - item: {fileID: 0}
-    count: 0
-  - item: {fileID: 0}
-    count: 0
-  - item: {fileID: 0}
-    count: 0
-  - item: {fileID: 0}
-    count: 0
-  - item: {fileID: 0}
-    count: 0
+  - item: {fileID: 11400000, guid: 865a935a2503dfa42b3aec2c07895da4, type: 2}
+    count: 99
+  - item: {fileID: 11400000, guid: 865a935a2503dfa42b3aec2c07895da4, type: 2}
+    count: 99
+  - item: {fileID: 11400000, guid: 865a935a2503dfa42b3aec2c07895da4, type: 2}
+    count: 99
+  - item: {fileID: 11400000, guid: 865a935a2503dfa42b3aec2c07895da4, type: 2}
+    count: 99
+  - item: {fileID: 11400000, guid: 865a935a2503dfa42b3aec2c07895da4, type: 2}
+    count: 99
+  - item: {fileID: 11400000, guid: 865a935a2503dfa42b3aec2c07895da4, type: 2}
+    count: 30
+  - item: {fileID: 11400000, guid: 120d1928e8a746a449f1a6b8515988b1, type: 2}
+    count: 1
   - item: {fileID: 0}
     count: 0
   - item: {fileID: 0}

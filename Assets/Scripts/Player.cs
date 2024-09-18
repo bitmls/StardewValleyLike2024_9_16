@@ -45,4 +45,16 @@ public class Player : MonoBehaviour
             Destroy(collision.gameObject);
         }
     }
+
+    public void ThrowItem(GameObject itemPrefab, int count)
+    {
+        for(int i = 0; i < count; i++)
+        {
+            GameObject go = GameObject.Instantiate(itemPrefab);
+
+            Vector2 direction = Random.insideUnitCircle.normalized * 1.2f;
+            go.transform.position = transform.position + new Vector3(direction.x, direction.y, 0);
+            go.GetComponent<Rigidbody2D>().AddForce(direction*10);
+        }
+    }
 }
