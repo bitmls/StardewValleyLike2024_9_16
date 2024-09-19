@@ -32,11 +32,14 @@ public class Player : MonoBehaviour
         }
 
         if (toolBarUI.GetSelectedSLotUI() != null
-            && toolBarUI.GetSelectedSLotUI().GetSlotData().item.type == ItemType.Hoe
             && Input.GetKeyDown(KeyCode.Space))
         {
-            anim.SetBool("IsHoe", true);
-            isHoeing = true;
+            if (!toolBarUI.GetSelectedSLotUI().GetSlotData().IsEmpty()
+                && toolBarUI.GetSelectedSLotUI().GetSlotData().item.type == ItemType.Hoe)
+            {
+                anim.SetBool("IsHoe", true);
+                isHoeing = true;
+            }
         }
     }
 
