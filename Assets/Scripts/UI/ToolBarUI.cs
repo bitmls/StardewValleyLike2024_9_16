@@ -16,9 +16,19 @@ public class ToolBarUI : MonoBehaviour
 
     private void Update()
     {
-        for(int i = (int)KeyCode.Alpha1; i <= (int)KeyCode.Alpha9; i++)
+        ToolBarSelectControl();
+    }
+
+    public ToolBarSlotUI GetSelectedSLotUI()
+    {
+        return selectedSlotUI;
+    }
+
+    private void ToolBarSelectControl()
+    {
+        for (int i = (int)KeyCode.Alpha1; i <= (int)KeyCode.Alpha9; i++)
         {
-            if(Input.GetKeyDown((KeyCode)i))
+            if (Input.GetKeyDown((KeyCode)i))
             {
                 int index = i - (int)KeyCode.Alpha1;
 
@@ -28,7 +38,6 @@ public class ToolBarUI : MonoBehaviour
                 if (selectedIndex == index)
                 {
                     selectedSlotUI.SwitchHighLight();
-                    Debug.Log(index);
                 }
                 else
                 {

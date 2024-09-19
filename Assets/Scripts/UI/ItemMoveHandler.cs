@@ -44,7 +44,7 @@ public class ItemMoveHandler : MonoBehaviour
         }
         if(Input.GetMouseButtonDown(1))
         {
-            ClearHand();
+            ClearHandForce();
         }
 
         if(Input.GetKeyDown(KeyCode.LeftControl))
@@ -65,7 +65,7 @@ public class ItemMoveHandler : MonoBehaviour
             // 1.1.selected slot is empty
             if (slotUI.GetSlotData().IsEmpty())
             {
-                MoveItem(selectedSlotData, slotUI.GetSlotData());
+                MoveItemToEmptySlot(selectedSlotData, slotUI.GetSlotData());
             }
             // 1.2.selected slot is not empty
             else
@@ -76,12 +76,12 @@ public class ItemMoveHandler : MonoBehaviour
                 // 1.2.2.the items in selected slot and the items in hand are the same
                 if(selectedSlotData.item.type == slotUI.GetSlotData().item.type)
                 {
-
+                    MoveItemToNotEmptySlot(selectedSlotData, slotUI.GetSlotData());
                 }
-                // 1.2.3.the items in selected slot and the items in hand are the same
+                // 1.2.3.the items in selected slot and the items in hand are not the same
                 else
                 {
-                    
+                    SwapSlot(selectedSlotData, slotUI.GetSlotData());
                 }
             }
         }
@@ -110,13 +110,22 @@ public class ItemMoveHandler : MonoBehaviour
 
     private void ClearHand()
     {
+        if (selectedSlotData.IsEmpty())
+        {
+            HideIcon();
+            selectedSlotData = null;
+        }
+    }
+
+    private void ClearHandForce()
+    {
         HideIcon();
         selectedSlotData = null;
     }
 
     private void TrowItem()
     {
-        if (selectedSlotData.IsEmpty())
+        if (selectedSlotData == null)
             return;
 
         GameObject prefab = selectedSlotData.item.prefab;
@@ -125,30 +134,66 @@ public class ItemMoveHandler : MonoBehaviour
         if (isCtrlDown)
         {
             player.ThrowItem(prefab, 1);
-            selectedSlotData.ReduceOne();
+            selectedSlotData.ReduceNum();
         }
         else
         {
             player.ThrowItem(prefab, count);
             selectedSlotData.Clear();
         }
-        if(selectedSlotData.IsEmpty())
-            ClearHand();
+        ClearHand();
     }
 
-    private void MoveItem(SlotData srcSlotData, SlotData dstSlotdata)
+    private void MoveItemToEmptySlot(SlotData srcSlotData, SlotData dstSlotdata)
     {
         if (isCtrlDown)
         {
             dstSlotdata.AddNewItem(srcSlotData.item);
-            srcSlotData.ReduceOne();
+            srcSlotData.ReduceNum();
         }
         else
         {
             dstSlotdata.CopySlot(srcSlotData);
             srcSlotData.Clear();
         }
-        if (selectedSlotData.IsEmpty())
-            ClearHand();
+        ClearHand();
+    }
+
+    private void MoveItemToNotEmptySlot(SlotData srcSlotData, SlotData dstSlotData)
+    {
+        if(isCtrlDown)
+        {
+            if (dstSlotData.IsFull())
+                return;
+            dstSlotData.AddNum();
+            srcSlotData.ReduceNum();
+        }
+        else
+        {
+            int emptyCount = dstSlotData.item.maxCount - dstSlotData.count;
+            int haveCount = srcSlotData.count;
+            if (emptyCount > haveCount)
+            {
+                dstSlotData.AddNum(haveCount);
+                srcSlotData.ReduceNum(haveCount);
+            }
+            else
+            {
+                dstSlotData.AddNum(emptyCount);
+                srcSlotData.ReduceNum(emptyCount);
+            }
+        }
+        ClearHand();
+    }
+
+    private void SwapSlot(SlotData srcSlotData, SlotData dstSlotData)
+    {
+        ItemData itemData = dstSlotData.item;
+        int count = dstSlotData.count;
+
+        dstSlotData.CopySlot(srcSlotData);
+        srcSlotData.AddNewItem(itemData, count);
+
+        ClearHandForce();
     }
 }

@@ -8,7 +8,9 @@ public class InventoryManager : MonoBehaviour
 
     private Dictionary<ItemType, ItemData> itemDataDict = new Dictionary<ItemType, ItemData>();
 
+    [HideInInspector]
     public InventoryData backpack;
+    [HideInInspector]
     public InventoryData toolBar;
 
     private void Awake()
@@ -54,7 +56,7 @@ public class InventoryManager : MonoBehaviour
         {
             if (slotData.item == item && !slotData.IsFull())
             {
-                slotData.AddOne();
+                slotData.AddNum();
                 return;
             }
         }

@@ -21,24 +21,24 @@ public class SlotData
         return count == 0 || item == null;
     }
 
-    public void AddOne()
+    public void AddNum(int num = 1)
     {
-        count++;
+        count += num;
         TriggerChange();
     }
 
-    public void ReduceOne()
+    public void ReduceNum(int num = 1)
     {
-        count--;
+        count -= num;
         if (IsEmpty())
             Clear();
         TriggerChange();
     }
 
-    public void AddNewItem(ItemData item)
+    public void AddNewItem(ItemData item, int count = 1)
     {
         this.item = item;
-        count++;
+        this.count = count;
         TriggerChange();
     }
 

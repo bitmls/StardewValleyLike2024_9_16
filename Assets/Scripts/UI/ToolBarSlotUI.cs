@@ -22,14 +22,12 @@ public class ToolBarSlotUI : SlotUI
     {
         image.sprite = slotLight;
         isLight = true;
-        Debug.Log("light");
     }
 
     public void UnHighlight()
     {
         image.sprite = slotDark;
         isLight = false;
-        Debug.Log("dark");
     }
 
     public void SwitchHighLight()
