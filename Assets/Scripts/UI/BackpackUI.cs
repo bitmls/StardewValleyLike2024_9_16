@@ -38,6 +38,7 @@ public class BackpackUI : MonoBehaviour
         }
 
         UpdateUI();
+        ToggleUI();
     }
 
     private void UpdateUI()
